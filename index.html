@@ -518,7 +518,10 @@ setInterval(updateBirthdayMessage, 1100);
             function createCat() {
                 const cat = document.createElement('img');
                 cat.className = 'cat';
-                cat.src = `cats/cat${Math.floor(Math.random() * 5) + 1}.png`; // Using PNG cat images
+                // Determine base path for GitHub Pages compatibility
+                const basePath = window.location.hostname.includes('github.io') ? 
+                    `/${window.location.pathname.split('/')[1]}/` : '';
+                cat.src = `${basePath}cats/cat${Math.floor(Math.random() * 5) + 1}.png`; // Using PNG cat images
                 cat.style.width = `${Math.random() * 100 + 50}px`;
                 cat.style.opacity = Math.random() * 0.7 + 0.3;
                 
